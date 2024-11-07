@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atlas-Sys
 
-## Getting Started
+Welcome to **Atlas-Sys**! This project is a comprehensive system designed to manage country information, with a unique twist on presenting countries as if they were destinations for intergalactic travelers.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Atlas-Sys allows users to view detailed information on various countries, including their cultures, languages, and key statistics. With an alien-inspired interface, this project gives a unique and engaging perspective on global data. The data is sourced from the [REST Countries API](https://restcountries.com/), making it easy to fetch and update information.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Country Database**: View detailed information about countries worldwide.
+- **Intergalactic Travel Theme**: Unique design inspired by alien perspectives on Earth countries.
+- **Search and Filter**: Find countries by name, region, or other criteria.
+- **Responsive Design**: Fully compatible with desktop and mobile browsers.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/arieldiego73/atlas-sys.git
+   cd atlas-sys
+   ```
 
-## Deploy on Vercel
+2. **Install Dependencies**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Assuming this project uses Node.js and npm:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```shell
+   npm install
+   ```
+
+3. **Run the Application**
+
+   Start the development server
+
+   ```shell
+   npm run dev
+   ```
+
+4. **Visit the Application**
+
+   Open your browser and go to [localhost](http://localhost:3000).
+
+## Usage
+
+1. **Search for a Country**: Use the search bar to look up any country.
+2. **View Details**: Click on a country to view detailed statistics and cultural information.
+3. **Explore Regions**: Filter countries by region or use the app’s recommendations.
+
+## Technologies Used
+
+- **JavaScript / TypeScript**
+- **Next.js** for the frontend framework
+- **Flowbite React components** for UI elements
+- **REST Countries API** for country data
+- **PostgreSQL** for data persistence
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/NewFeature`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License.
