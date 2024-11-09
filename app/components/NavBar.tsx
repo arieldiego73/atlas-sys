@@ -14,7 +14,7 @@ import Image from "next/image";
 
 export function NavBar() {
   return (
-    <Navbar fluid rounded className="bg-transparent">
+    <Navbar fluid rounded className="dark:bg-transparent">
       <NavbarBrand href="http://localhost:3000">
         <Image
           src="/favicon.ico"
@@ -53,7 +53,7 @@ export function NavBar() {
         </Dropdown>
         <NavbarToggle />
       </div>
-      <NavbarCollapse className="md:bg-slate-200 bg-inherit md:rounded-full rounded-none px-5 py-2">
+      <NavbarCollapse className="bg-slate-800 rounded-full px-5 py-2">
         <NavbarLink href="#" active>
           Home
         </NavbarLink>

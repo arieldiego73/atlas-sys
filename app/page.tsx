@@ -4,16 +4,17 @@ import Image from "next/image";
 import Script from "next/script";
 import HeroStars from "./components/HeroStars";
 import FloatingAstronaut from "./components/FloatingAstronaut";
+import FeatureSection from "./components/Feature/FeatureSection";
 
 const HomePage = () => {
   return (
     <>
+      <FloatingAstronaut />
       <div className="flex justify-evenly items-center md:mt-24 mt-8 hero-section">
         <div
           className="absolute inset-x-0 mx-auto h-5 w-full max-w-7xl bg-white opacity-90 rounded-full filter blur-3xl"
           style={{ top: "-1.5rem" }}
         ></div>
-        <FloatingAstronaut />
         <h1>
           Explore your
           <br />
@@ -47,6 +48,7 @@ const HomePage = () => {
         </div>
         <HeroStars />
       </div>
+      <FeatureSection />
       <Script src="/anime-float.js" strategy="beforeInteractive" />
     </>
   );

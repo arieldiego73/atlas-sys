@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${afacad.className} antialiased`}>
+      <body className={`${afacad.className} antialiased dark`}>
         <main className="container min-h-screen mx-auto">
           <NavBar />
           {children}

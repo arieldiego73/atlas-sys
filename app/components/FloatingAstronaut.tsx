@@ -5,12 +5,14 @@ import Image from "next/image";
 
 const FloatingAstronaut = () => {
   const astronautRef = useRef<HTMLImageElement>(null); // Create a ref for the astronaut image
+  const containerRef = useRef<HTMLDivElement>(null); // Ref for the container
   const currentPosition = useRef({ x: 0, y: 0 }); // Ref to keep track of current position
 
   useEffect(() => {
     const astronaut = astronautRef.current;
+    const container = containerRef.current;
 
-    if (astronaut) {
+    if (astronaut && container) {
       // Set initial position based on the computed transform to avoid snapping
       const initialTransform = getComputedStyle(astronaut).transform;
       if (initialTransform !== "none") {
@@ -20,7 +22,7 @@ const FloatingAstronaut = () => {
       }
 
       // Apply CSS transition for smooth movement
-      astronaut.style.transition = "transform 5s cubic-bezier(0.5, 0, 0.5, 1)"; // Smooth transitions over 5 seconds
+      astronaut.style.transition = "transform 10s cubic-bezier(0.5, 0, 0.5, 1)"; // Smooth transitions over 5 seconds
 
       // Start the floating animation
       floatAstronaut();
@@ -29,17 +31,18 @@ const FloatingAstronaut = () => {
 
   const floatAstronaut = () => {
     const astronaut = astronautRef.current;
+    const container = containerRef.current;
 
-    if (!astronaut) {
-      console.error("Astronaut image not found.");
+    if (!astronaut || !container) {
+      console.error("Astronaut image or container not found.");
       return;
     }
 
-    // Function to float the astronaut randomly within viewport bounds
+    // Function to float the astronaut randomly within container bounds
     const float = () => {
-      // Get the viewport dimensions
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
+      // Get the container dimensions
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
 
       // Get the astronaut dimensions
       const astronautWidth = astronaut.offsetWidth;
@@ -50,27 +53,31 @@ const FloatingAstronaut = () => {
       const randomY = Math.random() * 100 - 50; // Random Y from -50 to 50
 
       // Calculate the new position
-      const newX = currentPosition.current.x + randomX;
-      const newY = currentPosition.current.y + randomY;
+      let newX = currentPosition.current.x + randomX;
+      let newY = currentPosition.current.y + randomY;
 
-      // Limit the new position to the viewport dimensions
-      currentPosition.current.x = Math.max(
+      // Limit the new position to the container's dimensions
+      newX = Math.max(
         0, // Prevent moving beyond the left
-        Math.min(newX, viewportWidth - astronautWidth) // Prevent moving beyond the right
+        Math.min(newX, containerWidth - astronautWidth) // Prevent moving beyond the right
       );
-      currentPosition.current.y = Math.max(
+      newY = Math.max(
         0, // Prevent moving beyond the top
-        Math.min(newY, viewportHeight - astronautHeight) // Prevent moving beyond the bottom
+        Math.min(newY, containerHeight - astronautHeight) // Prevent moving beyond the bottom
       );
+
+      // Update the current position
+      currentPosition.current.x = newX;
+      currentPosition.current.y = newY;
 
       // Generate a random rotation
       const randomRotation = Math.random() * 20 - 5; // Random rotation from -5 to 5 degrees
 
       // Apply the new position and rotation smoothly using CSS transitions
-      astronaut.style.transform = `translate(${currentPosition.current.x}px, ${currentPosition.current.y}px) rotate(${randomRotation}deg)`;
+      astronaut.style.transform = `translate(${newX}px, ${newY}px) rotate(${randomRotation}deg)`;
 
       // Recursively float after each transition
-      setTimeout(float, 5000); // Move every 5 seconds
+      setTimeout(float, 10000); // Move every 5 seconds
     };
 
     // Start the floating animation
@@ -78,12 +85,15 @@ const FloatingAstronaut = () => {
   };
 
   return (
-    <div className="absolute overflow-hidden w-full h-full z-10">
+    <div
+      ref={containerRef}
+      className="absolute overflow-hidden w-10/12 h-screen z-10"
+    >
       <Image
         ref={astronautRef}
         src={"/astro.png"}
         className="absolute"
-        style={{ top: "55%", left: "20%" }}
+        style={{ top: "45%", left: "10%" }}
         width="60"
         height="60"
         alt="Floating Astronaut"
