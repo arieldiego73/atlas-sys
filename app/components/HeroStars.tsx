@@ -3,7 +3,13 @@
 import { useEffect } from "react";
 import anime from "animejs";
 
-const HeroStars = () => {
+interface HeroStarsProp {
+  count?: number;
+}
+
+const HeroStars: React.FC<HeroStarsProp> = ({ count = 0 }) => {
+  const STAR_COUNT = count;
+
   useEffect(() => {
     scatterStars();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -12,14 +18,12 @@ const HeroStars = () => {
   const scatterStars = () => {
     const heroSection = document.querySelector(".hero-stars") as HTMLDivElement;
 
-    const starCount = 20; // Number of stars to scatter
-
     if (!heroSection) {
       console.error("Hero section not found.");
       return;
     }
 
-    for (let i = 0; i < starCount; i++) {
+    for (let i = 0; i < STAR_COUNT; i++) {
       const star = createStar();
 
       if (!star) {

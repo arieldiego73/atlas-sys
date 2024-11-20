@@ -10,6 +10,9 @@
     @apply text-8xl font-bold py-4;
     line-height: 90%;
   }
+  p {
+    @apply text-lg;
+  }
   li a.md\:text-cyan-700 {
     @apply text-black;
   }
