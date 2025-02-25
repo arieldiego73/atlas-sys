@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Afacad } from "next/font/google"; // Import the Google Font
 import { NavBar } from "./components/NavBar";
+import { AtlasFooter } from "./components/Footer";
 
 const afacad = Afacad({
   subsets: ["latin"],
@@ -23,11 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${afacad.className} antialiased dark`}>
-        <main className="container min-h-screen mx-auto">
+        <main className="container min-h-screen mx-auto flex flex-col justify-between">
           <header>
             <NavBar />
           </header>
           <section>{children}</section>
+          <footer>
+            <AtlasFooter />
+          </footer>
         </main>
       </body>
     </html>

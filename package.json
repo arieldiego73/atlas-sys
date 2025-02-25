@@ -12,6 +12,7 @@
     "animejs": "^3.2.2",
     "flowbite": "^2.5.1",
     "flowbite-react": "^0.10.1",
+    "framer-motion": "^12.4.7",
     "next": "^15.0.3",
     "react": "^18",
     "react-dom": "^18",

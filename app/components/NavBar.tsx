@@ -54,7 +54,7 @@ export function NavBar() {
         <NavbarToggle />
       </div>
       <NavbarCollapse className="bg-slate-800 rounded-full px-5 py-2">
-        <NavbarLink href="#" active>
+        <NavbarLink href="/" active>
           Home
         </NavbarLink>
         <NavbarLink href="#">About</NavbarLink>

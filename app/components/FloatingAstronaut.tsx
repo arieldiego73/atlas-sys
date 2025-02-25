@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const FloatingAstronaut = () => {
   const astronautRef = useRef<HTMLImageElement>(null); // Create a ref for the astronaut image
@@ -87,13 +88,13 @@ const FloatingAstronaut = () => {
   return (
     <div
       ref={containerRef}
-      className="absolute overflow-hidden w-10/12 h-screen z-10"
+      className="absolute overflow-hidden w-full h-screen z-10 top-0 left-0 pointer-events-none"
     >
       <Image
         ref={astronautRef}
         src={"/astro.png"}
         className="absolute"
-        style={{ top: "45%", left: "10%" }}
+        style={{ top: "50%", left: "8%" }}
         width="60"
         height="60"
         alt="Floating Astronaut"
