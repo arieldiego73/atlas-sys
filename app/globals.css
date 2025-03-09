@@ -7,7 +7,7 @@
     @apply text-slate-200;
   }
   h1 {
-    @apply text-8xl font-bold;
+    @apply text-7xl font-black;
     line-height: 90%;
   }
   p {

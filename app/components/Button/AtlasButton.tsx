@@ -10,6 +10,7 @@ interface AtlasButtonProps {
   disabled?: boolean;
   type?: "primary" | "secondary" | "tertiary";
   targetBlank?: boolean;
+  buttonType?: "button" | "reset" | "submit";
 }
 
 const AtlasButton: React.FC<AtlasButtonProps> = (props) => {
@@ -23,6 +24,7 @@ const AtlasButton: React.FC<AtlasButtonProps> = (props) => {
 
   return (
     <motion.button
+      type={props.buttonType}
       initial={{ scale: 1 }}
       whileHover={{
         filter: `drop-shadow(0 0 4rem ${determineHoverBg()})`,

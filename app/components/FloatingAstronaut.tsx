@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const FloatingAstronaut = () => {
   const astronautRef = useRef<HTMLImageElement>(null); // Create a ref for the astronaut image
@@ -23,7 +22,7 @@ const FloatingAstronaut = () => {
       }
 
       // Apply CSS transition for smooth movement
-      astronaut.style.transition = "transform 10s cubic-bezier(0.5, 0, 0.5, 1)"; // Smooth transitions over 5 seconds
+      astronaut.style.transition = "transform 10s cubic-bezier(0.5, 0, 0.5, 1)";
 
       // Start the floating animation
       floatAstronaut();
@@ -39,7 +38,6 @@ const FloatingAstronaut = () => {
       return;
     }
 
-    // Function to float the astronaut randomly within container bounds
     const float = () => {
       // Get the container dimensions
       const containerWidth = container.clientWidth;
@@ -72,13 +70,13 @@ const FloatingAstronaut = () => {
       currentPosition.current.y = newY;
 
       // Generate a random rotation
-      const randomRotation = Math.random() * 20 - 5; // Random rotation from -5 to 5 degrees
+      const randomRotation = Math.random() * 65 - 45; // Random rotation from -45 to 20 degrees
 
       // Apply the new position and rotation smoothly using CSS transitions
       astronaut.style.transform = `translate(${newX}px, ${newY}px) rotate(${randomRotation}deg)`;
 
       // Recursively float after each transition
-      setTimeout(float, 10000); // Move every 5 seconds
+      setTimeout(float, 10000); // Move every 10 seconds
     };
 
     // Start the floating animation
@@ -94,7 +92,7 @@ const FloatingAstronaut = () => {
         ref={astronautRef}
         src={"/astro.png"}
         className="absolute"
-        style={{ top: "50%", left: "8%" }}
+        style={{ top: "25%", left: "15%", transform: "rotate(15deg)" }}
         width="60"
         height="60"
         alt="Floating Astronaut"
